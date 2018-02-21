@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->integer('costo');
             $table->integer('precio');
             $table->integer('unidades');
-;            $table->string('genero');
+            $table->string('genero');
             $table->timestamps();
         });
     }
