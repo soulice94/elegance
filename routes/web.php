@@ -18,3 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/productos', array(
+    'as'    => 'productos_index',
+    'uses'  => 'ProductoController@index'
+));
