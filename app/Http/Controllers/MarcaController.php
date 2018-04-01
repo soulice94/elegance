@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Producto;
+use App\Marca;
 use Illuminate\Http\Request;
 
-class ProductoController extends Controller
+class MarcaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,6 @@ class ProductoController extends Controller
     public function index()
     {
         //
-        return "Hola desde los productos";
     }
 
     /**
@@ -26,7 +25,6 @@ class ProductoController extends Controller
     public function create()
     {
         //
-        return view('productos.create');
     }
 
     /**
@@ -43,10 +41,10 @@ class ProductoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Producto  $producto
+     * @param  \App\Marca  $marca
      * @return \Illuminate\Http\Response
      */
-    public function show(Producto $producto)
+    public function show(Marca $marca)
     {
         //
     }
@@ -54,10 +52,10 @@ class ProductoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Producto  $producto
+     * @param  \App\Marca  $marca
      * @return \Illuminate\Http\Response
      */
-    public function edit(Producto $producto)
+    public function edit(Marca $marca)
     {
         //
     }
@@ -66,10 +64,10 @@ class ProductoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Producto  $producto
+     * @param  \App\Marca  $marca
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Producto $producto)
+    public function update(Request $request, Marca $marca)
     {
         //
     }
@@ -77,10 +75,10 @@ class ProductoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Producto  $producto
+     * @param  \App\Marca  $marca
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Producto $producto)
+    public function destroy(Marca $marca)
     {
         //
     }

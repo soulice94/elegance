@@ -20,6 +20,16 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/productos', array(
-    'as'    => 'productos_index',
+    'as'    => 'productosIndex',
     'uses'  => 'ProductoController@index'
+));
+
+Route::get('/productos/create', array(
+    'as'    => 'productosCreate',
+    'uses'  => 'ProductoController@create'
+));
+
+Route::get('/productos/store', array(
+    'as'    => 'productosStore',
+    'uses'  => 'ProductoController@store'
 ));
