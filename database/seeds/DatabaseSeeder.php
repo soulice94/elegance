@@ -16,7 +16,8 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             CategoriasTableSeeder::class,
             ColorsTableSeeder::class,
-            MarcasTableSeeder::class
+            MarcasTableSeeder::class,
+            GenerosTableSeeder::class
         ]);
     }
 }
