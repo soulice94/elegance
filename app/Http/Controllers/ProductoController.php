@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Producto;
+use App\Categoria;
+use App\Marca;
+use App\Color;
 use Illuminate\Http\Request;
 
 class ProductoController extends Controller
@@ -26,7 +29,15 @@ class ProductoController extends Controller
     public function create()
     {
         //
-        return view('productos.create');
+        $categorias = Categoria::all()->sortBy('nombre');
+        $marcas     = Marca::all()->sortBy('nombre');
+        $colores    = Color::all()->sortBy('nombre');
+        $compacto   = compact(
+            'categorias',
+            'marcas',
+            'colores'
+        );
+        return view('productos.create', $compacto);
     }
 
     /**
