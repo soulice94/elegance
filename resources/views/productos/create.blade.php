@@ -26,6 +26,34 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="modelo" class="col-md-2 col-form-label text-md-right">Modelo</label>
+
+                            <div class="col-md-10">
+                                <input id="modelo" type="text" class="form-control{{ $errors->has('modelo') ? ' is-invalid' : '' }}" name="modelo" value="{{ old('modelo') }}" required>
+
+                                @if ($errors->has('modelo'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('modelo') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="codigo" class="col-md-2 col-form-label text-md-right">Código</label>
+
+                            <div class="col-md-10">
+                                <input id="codigo" type="text" class="form-control{{ $errors->has('codigo') ? ' is-invalid' : '' }}" name="codigo" value="{{ old('codigo') }}" required >
+
+                                @if ($errors->has('codigo'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('codigo') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="categoria" class="col-md-2 col-form-label text-md-right">Categoría</label>
 
                             <div class="col-md-10">
@@ -102,6 +130,40 @@
                                         <strong>{{ $errors->first('descuento') }}</strong>
                                     </span>
                                 @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="genero" class="col-md-2 col-form-label text-md-right">Género</label>
+
+                            <div class="col-md-10">
+                                <select id="genero" name="genero" required>
+                                    @foreach ($generos as $item)
+                                        <option value="{{ $item->ID }}">{{ $item->nombre }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="descripcion" class="col-md-2 col-form-label text-md-right">Descripción</label>
+
+                            <div class="col-md-10">
+                                <textarea id="descripcion" type="text" class="form-control{{ $errors->has('descripcion') ? ' is-invalid' : '' }}" name="descripcion" value="{{ old('descripcion') }}" rows="5" required></textarea>
+
+                                @if ($errors->has('descripcion'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('descripcion') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-2">
+                                <button type="submit" class="btn btn-primary">
+                                    Guardar
+                                </button>
                             </div>
                         </div>
                         

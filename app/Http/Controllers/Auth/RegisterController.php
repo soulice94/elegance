@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Support\Facades\Log;
 
 class RegisterController extends Controller
 {
@@ -49,7 +48,6 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        Log::debug('entro al validador');
         return Validator::make($data, [
             'nombre'    => 'required|string|max:45',
             'paterno'   => 'required|string|max:45',

@@ -29,7 +29,7 @@ Route::get('/productos/create', array(
     'uses'  => 'ProductoController@create'
 ));
 
-Route::get('/productos/store', array(
+Route::post('/productos/store', array(
     'as'    => 'productosStore',
     'uses'  => 'ProductoController@store'
 ));

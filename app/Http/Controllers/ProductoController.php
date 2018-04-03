@@ -6,10 +6,38 @@ use App\Producto;
 use App\Categoria;
 use App\Marca;
 use App\Color;
+use App\Genero;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ProductoController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
+     * Get a validator for an incoming product.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validator(array $data)
+    {
+        Log::debug('estoy validando el producto');   
+        // return Validator::make($data, [
+        //     'nombre'    => 'required|string|max:45',
+        //     'paterno'   => 'required|string|max:45',
+        //     'materno'   => 'required|string|max:45',
+        //     'username'  => 'required|string|max:45',
+        //     'email'     => 'required|string|email|max:45|unique:users',
+        //     'password'  => 'required|string|min:6|confirmed'
+        // ]);
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -32,10 +60,12 @@ class ProductoController extends Controller
         $categorias = Categoria::all()->sortBy('nombre');
         $marcas     = Marca::all()->sortBy('nombre');
         $colores    = Color::all()->sortBy('nombre');
+        $generos    = Genero::all();
         $compacto   = compact(
             'categorias',
             'marcas',
-            'colores'
+            'colores',
+            'generos'
         );
         return view('productos.create', $compacto);
     }
@@ -49,6 +79,7 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
         //
+        dd($request->all());
     }
 
     /**
