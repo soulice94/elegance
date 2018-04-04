@@ -24,5 +24,9 @@ class ColorsTableSeeder extends Seeder
         Color::create([
             'nombre' => 'Café'
         ]);
+
+        Color::create([
+            'nombre' => 'Ninguno'
+        ]);
     }
 }

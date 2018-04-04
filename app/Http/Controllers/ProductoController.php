@@ -7,6 +7,7 @@ use App\Categoria;
 use App\Marca;
 use App\Color;
 use App\Genero;
+use App\Http\Requests\StoreProductos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -18,25 +19,6 @@ class ProductoController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Get a validator for an incoming product.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        Log::debug('estoy validando el producto');   
-        // return Validator::make($data, [
-        //     'nombre'    => 'required|string|max:45',
-        //     'paterno'   => 'required|string|max:45',
-        //     'materno'   => 'required|string|max:45',
-        //     'username'  => 'required|string|max:45',
-        //     'email'     => 'required|string|email|max:45|unique:users',
-        //     'password'  => 'required|string|min:6|confirmed'
-        // ]);
-    }
-
 
     /**
      * Display a listing of the resource.
@@ -45,8 +27,8 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        //
-        return "Hola desde los productos";
+        $productos = Producto::all();
+        return view('productos.index', compact('productos'));
     }
 
     /**
@@ -76,10 +58,10 @@ class ProductoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProductos $request)
     {
-        //
-        dd($request->all());
+        Producto::create($request->validated());
+        return redirect()->route('productosIndex');
     }
 
     /**

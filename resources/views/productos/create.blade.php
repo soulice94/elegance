@@ -57,7 +57,7 @@
                             <label for="categoria" class="col-md-2 col-form-label text-md-right">Categoría</label>
 
                             <div class="col-md-10">
-                                <select id="categoria" name="categoria" required>
+                                <select id="categoria" name="categorias_ID" required>
                                     @foreach ($categorias as $item)
                                         <option value="{{ $item->ID }}">{{ $item->nombre }}</option>
                                     @endforeach
@@ -69,8 +69,20 @@
                             <label for="marca" class="col-md-2 col-form-label text-md-right">Marca</label>
 
                             <div class="col-md-10">
-                                <select id="marca" name="marca" required>
+                                <select id="marca" name="marcas_ID" required>
                                     @foreach ($marcas as $item)
+                                        <option value="{{ $item->ID }}">{{ $item->nombre }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="color" class="col-md-2 col-form-label text-md-right">Color</label>
+
+                            <div class="col-md-10">
+                                <select id="color" name="colors_ID" required>
+                                    @foreach ($colores as $item)
                                         <option value="{{ $item->ID }}">{{ $item->nombre }}</option>
                                     @endforeach
                                 </select>
@@ -137,7 +149,7 @@
                             <label for="genero" class="col-md-2 col-form-label text-md-right">Género</label>
 
                             <div class="col-md-10">
-                                <select id="genero" name="genero" required>
+                                <select id="genero" name="generos_ID" required>
                                     @foreach ($generos as $item)
                                         <option value="{{ $item->ID }}">{{ $item->nombre }}</option>
                                     @endforeach
@@ -149,7 +161,7 @@
                             <label for="descripcion" class="col-md-2 col-form-label text-md-right">Descripción</label>
 
                             <div class="col-md-10">
-                                <textarea id="descripcion" type="text" class="form-control{{ $errors->has('descripcion') ? ' is-invalid' : '' }}" name="descripcion" value="{{ old('descripcion') }}" rows="5" required></textarea>
+                                <textarea id="descripcion" class="form-control{{ $errors->has('descripcion') ? ' is-invalid' : '' }}" name="descripcion" rows="5">{{old('descripcion')}}</textarea>
 
                                 @if ($errors->has('descripcion'))
                                     <span class="invalid-feedback">
