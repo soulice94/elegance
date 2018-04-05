@@ -19,11 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/productos', array(
-    'as'    => 'productosIndex',
-    'uses'  => 'ProductoController@index'
-));
-
 Route::get('/productos/create', array(
     'as'    => 'productosCreate',
     'uses'  => 'ProductoController@create'
@@ -32,4 +27,24 @@ Route::get('/productos/create', array(
 Route::post('/productos/store', array(
     'as'    => 'productosStore',
     'uses'  => 'ProductoController@store'
+));
+
+Route::get('/productos', array(
+    'as'    => 'productosIndex',
+    'uses'  => 'ProductoController@index'
+));
+
+Route::get('/clientes/create', array(
+    'as'    => 'clientesCreate',
+    'uses'  => 'ClienteController@create'
+));
+
+Route::post('/clientes/store', array(
+    'as'    => 'clientesStore',
+    'uses'  => 'ClienteController@store' 
+));
+
+Route::get('/clientes', array(
+    'as'    => 'clientesIndex',
+    'uses'  => 'ClienteController@index'
 ));
