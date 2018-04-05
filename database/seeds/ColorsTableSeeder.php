@@ -18,11 +18,11 @@ class ColorsTableSeeder extends Seeder
         ]);
 
         Color::create([
-            'nombre' => 'Blanco'
+            'nombre' => 'Dorado'
         ]);
 
         Color::create([
-            'nombre' => 'Café'
+            'nombre' => 'Acero'
         ]);
 
         Color::create([

@@ -60,6 +60,7 @@ class ProductoController extends Controller
      */
     public function store(StoreProductos $request)
     {
+        //dd($request->validated());
         Producto::create($request->validated());
         return redirect()->route('productosIndex');
     }
