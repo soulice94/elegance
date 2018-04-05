@@ -33,6 +33,7 @@
                 <h1 class="text-center">No hay clientes registrados aún :(</h1>
             @endif
         </div>
+        {{ $clientes->links() }}
     </div>
 </div>
 @endsection

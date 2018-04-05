@@ -18,7 +18,6 @@
                         <th scope="col">Color</th>
                         <th scope="col">Unidades</th>
                         <th scope="col">Descuento</th>
-                        <th scope="col">Pass</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,7 +37,6 @@
                             @else
                                     <td>No Aplica</td>
                             @endif
-                            <td>{{ $item->contrasena() }}</td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -47,6 +45,7 @@
                 <h1 class="text-center">No hay productos registrados aún :(</h1>
             @endif
         </div>
+        {{ $productos->links() }}
     </div>
 </div>
 @endsection
