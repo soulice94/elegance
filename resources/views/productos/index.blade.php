@@ -8,9 +8,7 @@
             <table class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">#</th>
                         <th scope="col">Código</th>
-                        <th scope="col">Modelo</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Precio</th>
                         <th scope="col">Categoria</th>
@@ -23,9 +21,7 @@
                 <tbody>
                     @foreach ($productos as $item)
                         <tr>
-                            <th scope="row">{{ $item->ID }}</th> 
                             <td>{{ $item->codigo }}</td>
-                            <td>{{ $item->modelo }}</td>
                             <td>{{ $item->nombre }}</td>
                             <td>{{ $item->precio }}.00 MXN</td>
                             <td>{{ $item->categoria->nombre }}</td>

@@ -29,6 +29,11 @@ Route::post('/productos/store', array(
     'uses'  => 'ProductoController@store'
 ));
 
+Route::get('/productos/{id}', array(
+    'as'    => 'productosDetails',
+    'uses'  => 'ProductoController@show'
+));
+
 Route::get('/productos', array(
     'as'    => 'productosIndex',
     'uses'  => 'ProductoController@index'

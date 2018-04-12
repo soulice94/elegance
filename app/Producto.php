@@ -37,7 +37,7 @@ class Producto extends Model
 
     public $timestamps = false;
 
-    public function contrasena(){
+    public function clave(){
         $transformada = "";
         foreach(str_split(strval($this->costo)) as $c){
             $transformada .= $this->decodificador[$c];
@@ -56,5 +56,9 @@ class Producto extends Model
 
     public function categoria(){
         return $this->hasOne('App\Categoria', 'ID', 'categorias_ID');
+    }
+
+    public function genero(){
+        return $this->hasOne('App\Genero', 'ID', 'generos_ID');
     }
 }

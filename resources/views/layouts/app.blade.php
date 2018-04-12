@@ -13,6 +13,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/correccion.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">

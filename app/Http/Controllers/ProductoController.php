@@ -71,9 +71,12 @@ class ProductoController extends Controller
      * @param  \App\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function show(Producto $producto)
+    public function show(int $id)
     {
-        //
+        $producto = Producto::find($id);
+        if(isset($producto)){
+            return view("productos.details", compact('producto'));
+        }
     }
 
     /**
