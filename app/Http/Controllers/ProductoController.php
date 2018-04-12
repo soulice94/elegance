@@ -77,6 +77,9 @@ class ProductoController extends Controller
         if(isset($producto)){
             return view("productos.details", compact('producto'));
         }
+        else{
+            abort(404, 'Error 404: La página que estás intentando acceder no se encuentra :(');
+        }
     }
 
     /**

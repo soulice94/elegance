@@ -32,7 +32,7 @@ Route::post('/productos/store', array(
 Route::get('/productos/{id}', array(
     'as'    => 'productosDetails',
     'uses'  => 'ProductoController@show'
-));
+))->where('id', '[0-9]+');
 
 Route::get('/productos', array(
     'as'    => 'productosIndex',
