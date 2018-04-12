@@ -58,7 +58,7 @@
                     </tr>
                     <tr>
                         <td><h4>precio</h4></td>
-                        <td><h4>${{ $producto->precio }}<small>MXN</small></h4></td>
+                        <td><h4>${{ $producto->precio }} <small>MXN</small></h4></td>
                     </tr>
                 </tbody>
             </table>

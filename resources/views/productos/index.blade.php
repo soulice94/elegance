@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             @if ($productos->isNotEmpty())
-            <table class="table table-striped">
+            <table class="table table-striped table-hover">
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">Código</th>
@@ -21,18 +21,20 @@
                 <tbody>
                     @foreach ($productos as $item)
                         <tr>
-                            <td>{{ $item->codigo }}</td>
+                            <td><a href="{{ route('productosDetails', [ 'id' => $item->ID ]) }}">{{ $item->codigo }}</a></td>
                             <td>{{ $item->nombre }}</td>
                             <td>{{ $item->precio }}.00 MXN</td>
                             <td>{{ $item->categoria->nombre }}</td>
                             <td>{{ $item->marca->nombre }}</td>
                             <td>{{ $item->color->nombre }}</td>
-                            <td>{{ $item->unidades }}</td>
+                            <td class="text-center">{{ $item->unidades }}</td>
+                            <td class="text-center">
                             @if (isset($item->descuento))
-                                <td>{{ $item->descuento }}</td>
+                                {{ $item->descuento }}
                             @else
-                                    <td>No Aplica</td>
+                                No Aplica
                             @endif
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

@@ -43,7 +43,7 @@
                             <label for="codigo" class="col-md-2 col-form-label text-md-right">Código</label>
 
                             <div class="col-md-10">
-                                <input id="codigo" type="text" class="form-control{{ $errors->has('codigo') ? ' is-invalid' : '' }}" name="codigo" value="{{ old('codigo') }}" required >
+                                <input id="codigo" type="number" class="form-control{{ $errors->has('codigo') ? ' is-invalid' : '' }}" name="codigo" value="{{ old('codigo') }}" required >
 
                                 @if ($errors->has('codigo'))
                                     <span class="invalid-feedback">
