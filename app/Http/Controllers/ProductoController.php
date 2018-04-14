@@ -115,4 +115,9 @@ class ProductoController extends Controller
     {
         //
     }
+
+    public function apartar(string $codigo){
+        $producto = Producto::find($codigo);
+        return view('productos.book', compact('producto'));
+    }
 }

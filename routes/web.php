@@ -29,6 +29,11 @@ Route::post('/productos/store', array(
     'uses'  => 'ProductoController@store'
 ));
 
+Route::get('/productos/apartar/{codigo}', array(
+    'as'    => 'productosApartar',
+    'uses'  => 'ProductoController@apartar'
+));
+
 Route::get('/productos/{id}', array(
     'as'    => 'productosDetails',
     'uses'  => 'ProductoController@show'
@@ -37,6 +42,11 @@ Route::get('/productos/{id}', array(
 Route::get('/productos', array(
     'as'    => 'productosIndex',
     'uses'  => 'ProductoController@index'
+));
+
+Route::post('/apartado', array(
+    'as'    => 'apartado',
+    'uses'  => 'ApartadoController@store'
 ));
 
 Route::get('/clientes/create', array(

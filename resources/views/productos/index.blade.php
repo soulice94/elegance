@@ -46,7 +46,7 @@
                             </td>
                             <td>
                             @if ($item->unidades > 0)
-                                <button type="button" class="btn btn-blue">Apartar</button>
+                                <a class="btn btn-blue" href="{{ route('productosApartar', [ 'codigo' => $item->codigo ]) }}">Apartar</a>
                             @else
                                 No disponible
                             @endif
