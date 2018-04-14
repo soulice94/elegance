@@ -16,6 +16,7 @@
                         <th scope="col">Color</th>
                         <th scope="col">Unidades</th>
                         <th scope="col">Descuento</th>
+                        <th scope="col">Comprar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -23,7 +24,7 @@
                         <tr>
                             <td><a href="{{ route('productosDetails', [ 'id' => $item->ID ]) }}">{{ $item->codigo }}</a></td>
                             <td>{{ $item->nombre }}</td>
-                            <td>{{ $item->precio }}.00 MXN</td>
+                            <td>${{ $item->precio }}</td>
                             <td>{{ $item->categoria->nombre }}</td>
                             <td>{{ $item->marca->nombre }}</td>
                             <td>{{ $item->color->nombre }}</td>
@@ -33,6 +34,13 @@
                                 {{ $item->descuento }}
                             @else
                                 No Aplica
+                            @endif
+                            </td>
+                            <td>
+                            @if ($item->unidades > 0)
+                                <button type="button" class="btn btn-blue">Comprar</button>
+                            @else
+                                No disponible
                             @endif
                             </td>
                         </tr>

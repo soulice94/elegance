@@ -10,6 +10,7 @@ p{
     font-size: 1.1rem;
     padding: 15px 0 15px 15px;
     margin: 0;
+    vertical-align: middle;
 }
 .table{
     border-collapse: collapse;
@@ -25,4 +26,15 @@ p{
 }
 .table-striped tbody tr{
     background: #BEDAFC;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: black;
+}
+.navbar-light .navbar-nav .nav-link:hover{
+    color: lightgrey;
+}
+.btn-blue{
+    color: white;
+    background-color: #0F367B;
+    margin-right: 10px;
 }
