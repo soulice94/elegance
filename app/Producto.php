@@ -35,6 +35,12 @@ class Producto extends Model
         "0" => "X"
     ];
 
+    public $primaryKey = 'codigo';
+
+    public $incrementing = false;
+
+    public $keyType = 'string';
+
     public $timestamps = false;
 
     public function clave(){

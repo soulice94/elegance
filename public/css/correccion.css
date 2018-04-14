@@ -38,3 +38,6 @@ p{
     background-color: #0F367B;
     margin-right: 10px;
 }
+td.nombre{
+    width: 20%;
+}

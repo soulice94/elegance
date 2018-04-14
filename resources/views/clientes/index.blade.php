@@ -8,23 +8,21 @@
             <table class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col">Celular</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Paterno</th>
                         <th scope="col">Materno</th>
                         <th scope="col">Email</th>
-                        <th scope="col">Celular</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($clientes as $item)
                         <tr>
-                            <th scope="row">{{ $item->ID }}</th> 
+                            <td>{{ $item->celular }}</td>
                             <td>{{ $item->nombre }}</td>
                             <td>{{ $item->paterno }}</td>
                             <td>{{ $item->materno }}</td>
                             <td>{{ $item->email }}</td>
-                            <td>{{ $item->celular }}</td>
                         </tr>
                     @endforeach
                 </tbody>

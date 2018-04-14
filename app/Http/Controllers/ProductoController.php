@@ -71,7 +71,7 @@ class ProductoController extends Controller
      * @param  \App\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function show(int $id)
+    public function show(string $id)
     {
         $producto = Producto::find($id);
         if(isset($producto)){

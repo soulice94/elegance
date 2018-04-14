@@ -17,13 +17,14 @@
                         <th scope="col">Unidades</th>
                         <th scope="col">Descuento</th>
                         <th scope="col">Comprar</th>
+                        <th scope="col">Apartar</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($productos as $item)
                         <tr>
-                            <td><a href="{{ route('productosDetails', [ 'id' => $item->ID ]) }}">{{ $item->codigo }}</a></td>
-                            <td>{{ $item->nombre }}</td>
+                            <td><a href="{{ route('productosDetails', [ 'id' => $item->codigo ]) }}">{{ $item->codigo }}</a></td>
+                            <td class="nombre">{{ $item->nombre }}</td>
                             <td>${{ $item->precio }}</td>
                             <td>{{ $item->categoria->nombre }}</td>
                             <td>{{ $item->marca->nombre }}</td>
@@ -39,6 +40,13 @@
                             <td>
                             @if ($item->unidades > 0)
                                 <button type="button" class="btn btn-blue">Comprar</button>
+                            @else
+                                No disponible
+                            @endif
+                            </td>
+                            <td>
+                            @if ($item->unidades > 0)
+                                <button type="button" class="btn btn-blue">Apartar</button>
                             @else
                                 No disponible
                             @endif
