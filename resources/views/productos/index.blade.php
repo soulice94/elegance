@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             @if ($productos->isNotEmpty())
-            <table class="table table-striped table-hover">
+            <table class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">Código</th>

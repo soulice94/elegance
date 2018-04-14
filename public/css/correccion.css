@@ -17,3 +17,12 @@ p{
 .minh-100{
     min-height: 80vh;
 }
+.table .thead-dark th{
+    background-color: #0F367B;
+}
+.table-striped tbody tr:nth-of-type(odd){
+    background: white;
+}
+.table-striped tbody tr{
+    background: #BEDAFC;
+}
