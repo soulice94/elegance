@@ -47,7 +47,7 @@ Route::get('/productos', array(
 Route::post('/apartado', array(
     'as'    => 'apartado',
     'uses'  => 'ApartadoController@store'
-));
+))->middleware('check.access');
 
 Route::get('/clientes/create', array(
     'as'    => 'clientesCreate',

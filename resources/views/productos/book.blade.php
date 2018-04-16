@@ -1,47 +1,59 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
+<form class="container" action="{{ route('apartado') }}" method="POST">
+    @csrf
+    <div class="row justify-content-center mb-1">
         <div class="col-md-8">
             <div class="card card-default">
                 <div class="card-header">APARTA UN PRODUCTO</div>
 
                 <div class="card-body">
-                    <form action="{{ route('clientesStore') }}" method="POST">
-                        @csrf
+                    
+                    
 
-                        <div class="form-group row">
-                            <label class="col-md-2 text-md-right">CODIGO</label>
-                            <h3 class="col-md-10">{{ $producto->codigo }}</h3>
+                    <div class="form-group row">
+                        <label class="col-md-3 text-md-right">CODIGO</label>
+                        <h3 class="col-md-9">{{ $producto->codigo }}</h3>
+                        <input type="hidden" value="{{ $producto->codigo }}">
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="celular" class="col-md-3 col-form-label text-md-right">Celular del Cliente</label>
+
+                        <div class="col-md-9">
+                            <input id="celular" type="text" class="form-control{{ $errors->has('celular') ? ' is-invalid' : '' }}" name="celular" value="{{ old('celular') }}" required autofocus>
+
+                            @if ($errors->has('celular'))
+                                <span class="invalid-feedback">
+                                    <strong>{{ $errors->first('celular') }}</strong>
+                                </span>
+                            @endif
                         </div>
+                    </div>
 
-                        <div class="form-group row">
-                            <label for="nombre" class="col-md-2 col-form-label text-md-right">Nombre</label>
+                    <div class="form-group row">
+                        <label for="dominio" class="col-md-3 col-form-label text-md-right">Dominio de Mercancía</label>
 
-                            <div class="col-md-10">
-                                <input id="nombre" type="text" class="form-control{{ $errors->has('nombre') ? ' is-invalid' : '' }}" name="nombre" value="{{ old('nombre') }}" required autofocus>
-
-                                @if ($errors->has('nombre'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('nombre') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                        <div class="col-md-9 mt-3">
+                            <input id="dominio" type="checkbox" name="dominio" value="1" @if(old('dominio')) checked @endif>
                         </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-2">
-                                <button type="submit" class="btn btn-primary">
-                                    Guardar
-                                </button>
-                            </div>
-                        </div>
+                    </div>
                         
-                    </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
+    @component('users.loginInput')
+    @endcomponent
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <button type="submit" class="btn btn-primary w-100">
+                Enviar
+            </button>
+        </div>
+    </div>
+</form>
 @endsection

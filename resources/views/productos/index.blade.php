@@ -16,8 +16,8 @@
                         <th scope="col">Color</th>
                         <th scope="col">Unidades</th>
                         <th scope="col">Descuento</th>
-                        <th scope="col">Comprar</th>
-                        <th scope="col">Apartar</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
