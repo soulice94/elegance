@@ -15,7 +15,7 @@
                     <div class="form-group row">
                         <label class="col-md-3 text-md-right">CODIGO</label>
                         <h3 class="col-md-9">{{ $producto->codigo }}</h3>
-                        <input type="hidden" value="{{ $producto->codigo }}">
+                        <input name="producto" type="hidden" value="{{ $producto->codigo }}">
                     </div>
 
                     <div class="form-group row">

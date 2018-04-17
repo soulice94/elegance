@@ -37,11 +37,13 @@ class ApartadoController extends Controller
     {
         //
         $apartado = new Apartado;
-        $apartado->fecha = new \DateTime();
+        $apartado->fecha     = new \DateTime();
         $apartado->liquidado = false;
-        $apartado->dominio = $request->has('dominio') ? true : false;
-        $apartado->users_ID = $request->userid;
+        $apartado->dominio   = $request->has('dominio') ? true : false;
+        $apartado->users_ID  = $request->userid;
         $apartado->productos_codigo = $request->producto;
+        $apartado->clientes_celular = $request->celular;
+        $apartado->save();
     }
 
     /**
