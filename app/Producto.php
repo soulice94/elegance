@@ -41,8 +41,6 @@ class Producto extends Model
 
     public $keyType = 'string';
 
-    public $timestamps = false;
-
     public function clave(){
         $transformada = "";
         foreach(str_split(strval($this->costo)) as $c){

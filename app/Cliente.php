@@ -13,8 +13,6 @@ class Cliente extends Model
 
     public $keyType = 'string';
 
-    public $timestamps = false;
-
     protected $fillable = [
         'nombre',
         'paterno',

@@ -15,6 +15,8 @@ class ApartadoController extends Controller
     public function index()
     {
         //
+        $apartados = Apartado::orderBy('ID', 'desc')->paginate(15);
+        return view('apartados.index', compact('apartados'));
     }
 
     /**
@@ -37,13 +39,13 @@ class ApartadoController extends Controller
     {
         //
         $apartado = new Apartado;
-        $apartado->fecha     = new \DateTime();
         $apartado->liquidado = false;
         $apartado->dominio   = $request->has('dominio') ? true : false;
         $apartado->users_ID  = $request->userid;
         $apartado->productos_codigo = $request->producto;
         $apartado->clientes_celular = $request->celular;
         $apartado->save();
+        return redirect()->route('apartadosIndex');
     }
 
     /**
