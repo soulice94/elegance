@@ -20,10 +20,10 @@
                 <tbody>
                     @foreach ($apartados as $item)
                         <tr>
-                            <td>{{ $item->ID }}</td>
-                            <td>{{ $item->productos_codigo }}</td>
+                            <td><a href="{{ route('apartadosDetails', ['ID' => $item->ID]) }}">{{ $item->ID }}</a></td>
+                            <td><a href="{{ route('productosDetails', [ 'id' => $item->productos_codigo ]) }}">{{ $item->productos_codigo }}</a></td>
                             <td>{{ $item->producto->nombre }}</td>
-                            <td>{{ $item->clientes_celular }}</td>
+                            <td><a href="{{ route('clientesDetails', ['celular' => $item->clientes_celular]) }}">{{ $item->clientes_celular }}</a></td>
                             <td>{{ $item->cliente->nombre }} {{ $item->cliente->paterno }} {{ $item->cliente->materno }}</td>
                             <td>
                             @if ($item->liquidado)

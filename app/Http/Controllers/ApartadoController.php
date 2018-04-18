@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Apartado;
+use App\Producto;
 use Illuminate\Http\Request;
 
 class ApartadoController extends Controller
@@ -39,12 +40,21 @@ class ApartadoController extends Controller
     {
         //
         $apartado = new Apartado;
-        $apartado->liquidado = false;
-        $apartado->dominio   = $request->has('dominio') ? true : false;
-        $apartado->users_ID  = $request->userid;
+        $apartado->liquidado   = false;
+        $apartado->entregado   = $request->has('dominio') ? true : false;
+        $apartado->users_ID    = $request->userid;
         $apartado->productos_codigo = $request->producto;
         $apartado->clientes_celular = $request->celular;
-        $apartado->save();
+        
+        $producto = Producto::find($request->producto);
+        $producto->unidades--;
+
+        DB::transaction(function(){
+            $apartado->save();
+            $producto->save();
+        });
+
+        //te falta agregar un pago en el apartado
         return redirect()->route('apartadosIndex');
     }
 
@@ -54,9 +64,18 @@ class ApartadoController extends Controller
      * @param  \App\Apartado  $apartado
      * @return \Illuminate\Http\Response
      */
-    public function show(Apartado $apartado)
+    public function show(int $ID)
     {
         //
+        $apartado = Apartado::find($ID);
+        if(isset($apartado)){
+            $cliente  = $apartado->cliente->first();
+            $producto = $apartado->producto->first();
+            return view('apartados.show', compact('apartado', 'cliente'));
+        }
+        else{
+            abort(404, 'Error 404: El apartado al que estás intentando acceder no se encuentra :(');
+        }
     }
 
     /**

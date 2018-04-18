@@ -49,6 +49,11 @@ Route::post('/apartado', array(
     'uses'  => 'ApartadoController@store'
 ))->middleware('check.access');
 
+Route::get('/apartados/{ID}', array(
+    'as'    => 'apartadosDetails',
+    'uses'  => 'ApartadoController@show'
+));
+
 Route::get('/apartados', array(
     'as'    => 'apartadosIndex',
     'uses'  => 'ApartadoController@index'
@@ -62,6 +67,11 @@ Route::get('/clientes/create', array(
 Route::post('/clientes/store', array(
     'as'    => 'clientesStore',
     'uses'  => 'ClienteController@store' 
+));
+
+Route::get('/clientes/{celular}', array(
+    'as'    => 'clientesDetails',
+    'uses'  => 'ClienteController@show'
 ));
 
 Route::get('/clientes', array(

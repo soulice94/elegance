@@ -10,8 +10,6 @@
 
                 <div class="card-body">
                     
-                    
-
                     <div class="form-group row">
                         <label class="col-md-3 text-md-right">CODIGO</label>
                         <h3 class="col-md-9">{{ $producto->codigo }}</h3>

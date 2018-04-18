@@ -78,7 +78,7 @@ class ProductoController extends Controller
             return view("productos.details", compact('producto'));
         }
         else{
-            abort(404, 'Error 404: La página que estás intentando acceder no se encuentra :(');
+            abort(404, 'Error 404: El producto al que estás intentando acceder no se encuentra :(');
         }
     }
 

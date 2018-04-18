@@ -48,9 +48,16 @@ class ClienteController extends Controller
      * @param  \App\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function show(Cliente $cliente)
+    public function show(string $celular)
     {
         //
+        $cliente = Cliente::find($celular);
+        if(isset($cliente)){
+            return view('clientes.show', compact('cliente'));
+        }
+        else{
+            abort(404, 'Error 404: El cliente al que estás intentando acceder no se encuentra :(');
+        }
     }
 
     /**

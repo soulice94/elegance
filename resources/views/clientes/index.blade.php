@@ -18,7 +18,7 @@
                 <tbody>
                     @foreach ($clientes as $item)
                         <tr>
-                            <td>{{ $item->celular }}</td>
+                            <td><a href="{{ route('clientesDetails', ['celular' => $item->celular]) }}">{{ $item->celular }}</a></td>
                             <td>{{ $item->nombre }}</td>
                             <td>{{ $item->paterno }}</td>
                             <td>{{ $item->materno }}</td>
