@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Apartado;
 use App\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ApartadoController extends Controller
 {
@@ -49,7 +50,7 @@ class ApartadoController extends Controller
         $producto = Producto::find($request->producto);
         $producto->unidades--;
 
-        DB::transaction(function(){
+        DB::transaction(function() use($apartado, $producto){
             $apartado->save();
             $producto->save();
         });
