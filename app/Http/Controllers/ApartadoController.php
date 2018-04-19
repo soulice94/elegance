@@ -71,7 +71,7 @@ class ApartadoController extends Controller
         if(isset($apartado)){
             $cliente  = $apartado->cliente->first();
             $producto = $apartado->producto->first();
-            return view('apartados.show', compact('apartado', 'cliente'));
+            return view('apartados.show', compact('apartado', 'cliente', 'producto'));
         }
         else{
             abort(404, 'Error 404: El apartado al que estás intentando acceder no se encuentra :(');
