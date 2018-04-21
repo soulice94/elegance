@@ -31,6 +31,20 @@
                     </div>
 
                     <div class="form-group row">
+                        <label for="pago" class="col-md-3 col-form-label text-md-right">Primer Pago</label>
+
+                        <div class="col-md-9">
+                            <input id="pago" type="number" class="form-control{{ $errors->has('pago') ? ' is-invalid' : '' }}" name="pago" value="{{ old('pago') }}" required>
+
+                            @if ($errors->has('pago'))
+                                <span class="invalid-feedback">
+                                    <strong>{{ $errors->first('pago') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
                         <label for="dominio" class="col-md-3 col-form-label text-md-right">Dominio de Mercancía</label>
 
                         <div class="col-md-9 mt-3">

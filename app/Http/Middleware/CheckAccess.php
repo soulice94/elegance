@@ -21,7 +21,6 @@ class CheckAccess
         $errores = array();
         $cliente = Cliente::find($request->celular);
         $usuario = User::where('username', $request->username)->first();
-        $request->request->add(['userid' => $usuario->id]);
         if(!isset($cliente)){
             return back()->withErrors(['celular' => ['No existe un cliente con el teléfono ingresado']])->withInput();
         }
@@ -31,6 +30,7 @@ class CheckAccess
         if(!isset($usuario) || !$permiso){
             return back()->withErrors(['password' => ['El usuario no existe o la contraseña es incorrecta']])->withInput();
         }
+        $request->request->add(['userid' => $usuario->id]);
         return $next($request);
     }
 }

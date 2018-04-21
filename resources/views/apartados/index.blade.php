@@ -44,7 +44,7 @@
                 </tbody>
             </table>
             @else
-                <h1 class="text-center">No hay clientes registrados aún :(</h1>
+                <h1 class="text-center">No hay apartados registrados aún :(</h1>
             @endif
         </div>
         {{ $apartados->links() }}

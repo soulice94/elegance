@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Apartado;
 use App\Producto;
+use App\PagosApartado;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -50,9 +51,15 @@ class ApartadoController extends Controller
         $producto = Producto::find($request->producto);
         $producto->unidades--;
 
-        DB::transaction(function() use($apartado, $producto){
-            $apartado->save();
+        $pago = new PagosApartado;
+        $pago->cantidad = $request->pago;
+        $pago->users_ID = $request->userid;
+        
+        DB::transaction(function() use($apartado, $producto, $pago){
             $producto->save();
+            $apartado->save();
+            $pago->apartado_ID = $apartado->id;
+            $pago->save();
         });
 
         //te falta agregar un pago en el apartado
