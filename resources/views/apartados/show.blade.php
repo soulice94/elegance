@@ -3,7 +3,38 @@
 @section('content')
 <div class="container">
 
-    <h1>detalles del apartado (por hacer)</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <h1>Detalles</h1>
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        <td><h4>liquidado</h4></td>
+                        <td><h4>{{ $apartado->liquidado }}</h4></td>
+                    </tr>
+                    <tr>
+                        <td><h4>entregado</h4></td>
+                        <td><h4>{{ $apartado->entregado }}</h4></td>
+                    </tr>
+                    <tr>
+                        <td><h4>fecha de apartado</h4></td>
+                        <td><h4>{{ $apartado->created_at }}</h4></td>
+                    </tr>
+                    <tr>
+                        @php
+                            $abonado = $apartado->abonado();
+                        @endphp
+                        <td><h4>abonado</h4></td>
+                        <td><h4>${{ $abonado }}</h4></td>
+                    </tr>
+                    <tr>
+                        <td><h4>A Pagar</h4></td>
+                        <td><h4>${{ $producto->precio - $abonado }}</h4></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
     <h3>Pagos</h3>
     <table class="table table-hover table-striped table-bordered mb-5">
         <thead class="thead-dark">
@@ -19,7 +50,7 @@
             <tr>
                 <td>{{ $pago->ID }}</td>
                 <td>{{ $pago->created_at }}</td>
-                <td>{{ $pago->cantidad }}</td>
+                <td>${{ $pago->cantidad }}</td>
                 <td>{{ $pago->user->username }}</td>
             </tr>
             @endforeach

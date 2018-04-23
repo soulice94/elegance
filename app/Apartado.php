@@ -18,4 +18,12 @@ class Apartado extends Model
     public function pagos(){
         return $this->hasMany('App\PagosApartado', 'apartado_ID', 'ID');
     }
+
+    public function abonado(){
+        $abonado = 0;
+        $this->pagos->each(function($pago) use(&$abonado){
+            $abonado += $pago->cantidad;
+        });
+        return $abonado;
+    }
 }
