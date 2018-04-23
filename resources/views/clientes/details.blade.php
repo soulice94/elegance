@@ -1,8 +1,8 @@
 <div class="row justify-content-center">
     <div class="col-12">
-        <h2 class="mb-4 text-center">Datos del cliente</h2>
+        <h2 class="mb-4">Datos del cliente</h2>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-12">
         <table class="table table-hover">
             <tbody>
                 <tr>
@@ -19,11 +19,5 @@
                 </tr>
             </tbody>
         </table>
-    </div>
-     <div class="col-12">
-        <h2 class="mb-4 text-center">Ventas</h2>
-    </div>
-    <div class="col-12">
-        <h2 class="mb-4 text-center">Apartados</h2>
     </div>
 </div>

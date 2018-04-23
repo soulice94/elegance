@@ -2,7 +2,9 @@
 
 @section('content')
 
-@component('productos.details', ['producto' => $producto])
-@endcomponent
+<div class="container">
+    @component('productos.details', ['producto' => $producto])
+    @endcomponent
+</div>
     
 @endsection
