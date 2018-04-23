@@ -38,6 +38,11 @@ p{
     background-color: #0F367B;
     margin-right: 10px;
 }
+.btn-blue-soft{
+    color: white;
+    background-color: #0091EA;
+    margin-right: 10px;
+}
 td.nombre{
     width: 20%;
 }
