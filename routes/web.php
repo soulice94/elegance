@@ -49,6 +49,16 @@ Route::post('/apartado', array(
     'uses'  => 'ApartadoController@store'
 ))->middleware('check.access');
 
+Route::get('/apartado/abonar/{ID}', array(
+    'as'    => 'showAbonar',
+    'uses'  => 'ApartadoController@showAbonar'
+));
+
+Route::post('/apartado/abonar', array(
+    'as'    => 'abonar',
+    'uses'  => 'ApartadoController@abonar'
+))->middleware('check.access');
+
 Route::get('/apartados/{ID}', array(
     'as'    => 'apartadosDetails',
     'uses'  => 'ApartadoController@show'

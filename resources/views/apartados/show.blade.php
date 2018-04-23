@@ -5,16 +5,38 @@
 
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <h1>Detalles</h1>
+            <h1 class="mb-3">Detalles</h1>
             <table class="table table-hover">
                 <tbody>
                     <tr>
                         <td><h4>liquidado</h4></td>
-                        <td><h4>{{ $apartado->liquidado }}</h4></td>
+                        <td><h4>
+                        @if ($apartado->liquidado)
+                            Sí
+                        @else
+                            No
+                        @endif
+                        </h4></td>
                     </tr>
                     <tr>
                         <td><h4>entregado</h4></td>
-                        <td><h4>{{ $apartado->entregado }}</h4></td>
+                        <td><h4>
+                        @if ($apartado->entregado)
+                            Sí
+                        @else
+                            No
+                        @endif
+                        </h4></td>
+                    </tr>
+                    <tr>
+                        <td><h4>Fecha de entrega</h4></td>
+                        <td><h4>
+                        @if (isset($apartado->entrega))
+                            {{ $apartado->entrega }}
+                        @else
+                            Sin fecha de entrega
+                        @endif
+                        </h4></td>
                     </tr>
                     <tr>
                         <td><h4>fecha de apartado</h4></td>
@@ -35,11 +57,11 @@
             </table>
         </div>
     </div>
-    <h3>Pagos</h3>
-    <table class="table table-hover table-striped table-bordered mb-5">
+    <h3 class="mb-3">Pagos</h3>
+    <table class="table table-hover table-striped table-bordered mb-3">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">ID</th>
+                <th scope="col">Pago</th>
                 <th scope="col">FECHA</th>
                 <th scope="col">cantidad</th>
                 <th scope="col">usuario</th>
@@ -56,6 +78,8 @@
             @endforeach
         </tbody>
     </table>
+
+    <a href="{{ route('showAbonar',['ID' => $apartado->ID]) }}" class="btn btn-primary mb-5 w-100">Abonar</a>
 
     <div class="row">
         <div class="col-md-6">

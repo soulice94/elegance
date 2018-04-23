@@ -18,12 +18,8 @@ class CheckAccess
      */
     public function handle($request, Closure $next)
     {   
-        $errores = array();
-        $cliente = Cliente::find($request->celular);
         $usuario = User::where('username', $request->username)->first();
-        if(!isset($cliente)){
-            return back()->withErrors(['celular' => ['No existe un cliente con el teléfono ingresado']])->withInput();
-        }
+        
         if(isset($usuario)){
             $permiso = Hash::check($request->password, $usuario->password) ? true : false;
         }
