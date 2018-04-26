@@ -19,13 +19,14 @@ p{
     min-height: 80vh;
 }
 .table .thead-dark th{
-    background-color: #0F367B;
+    background-color: black;
 }
 .table-striped tbody tr:nth-of-type(odd){
     background: white;
 }
 .table-striped tbody tr{
-    background: #BEDAFC;
+    /* background: #BEDAFC; */
+    background: #FFECB3;
 }
 .navbar-light .navbar-nav .nav-link {
     color: black;
@@ -35,12 +36,15 @@ p{
 }
 .btn-blue{
     color: white;
-    background-color: #0F367B;
+    /* background-color: #0F367B; */
+    background: black;
     margin-right: 10px;
 }
 .btn-blue-soft{
     color: white;
-    background-color: #0091EA;
+    /* background-color: #0091EA; */
+    background: #FFC107;
+    color: black;
     margin-right: 10px;
 }
 td.nombre{
@@ -48,4 +52,8 @@ td.nombre{
 }
 body{
     color: black;
+}
+p.error{
+    color:red;
+    font-size: 0.8rem;
 }

@@ -88,3 +88,9 @@ Route::get('/clientes', array(
     'as'    => 'clientesIndex',
     'uses'  => 'ClienteController@index'
 ));
+
+Route::post('venta/add/producto', array(
+    'as'    => 'ventaAddProducto',
+    'uses'  => 'VentaController@addProducto'
+));
+

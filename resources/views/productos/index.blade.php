@@ -39,7 +39,11 @@
                             </td>
                             <td>
                             @if ($item->unidades > 0)
-                                <button type="button" class="btn btn-blue" onclick="show({{ $item->codigo }})">Comprar</button>
+                                <button type="button" class="btn btn-blue" onclick="show(this, '{{ $item->codigo }}')" 
+                                @if ($carrito->has($item->codigo))
+                                    disabled
+                                @endif
+                                >Comprar</button>
                             @else
                                 No disponible
                             @endif
@@ -63,23 +67,33 @@
     </div>
 </div>
 <div class="modal fade" tabindex="-1" role="dialog" id="modal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p id="etiqueta">Modal body text goes here.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                MODELO: <label id="etiqueta">body text goes here.</label>
+                <br>
+                <input type="number" placeholder="Cantidad" id="cantidad">
+
+                <p class="error collapse" id="errorLabel"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="guardar()">Guardar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
     </div>
-  </div>
+</div>
+<div class="alert alert-success collapse fixed-top" role="alert">
+    El producto que seleccionaste fue agregado correctamente al carrito
+    <button type="button" class="close" aria-label="Close" onclick="cerrar()">
+        <span aria-hidden="true">&times;</span>
+    </button>
 </div>
 
 @endsection

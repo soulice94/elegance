@@ -7,6 +7,7 @@ use App\Categoria;
 use App\Marca;
 use App\Color;
 use App\Genero;
+use App\Carrito;
 use App\Http\Requests\StoreProductos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -27,8 +28,9 @@ class ProductoController extends Controller
      */
     public function index()
     {
+        $carrito = Carrito::all()->keyBy('productos_codigo');
         $productos = Producto::paginate(15);
-        return view('productos.index', compact('productos'));
+        return view('productos.index', compact('productos', 'carrito'));
     }
 
     /**
