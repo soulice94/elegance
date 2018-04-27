@@ -1,6 +1,7 @@
 var btn = null;
 
 function show(elemento,codigo){
+    $("#errorLabel").hide();
     $('#etiqueta').text(codigo);
     $("#modal").modal({ show: true });
     $("#cantidad").val(1);

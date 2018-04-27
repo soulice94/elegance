@@ -37,7 +37,7 @@ Route::get('/productos/apartar/{codigo}', array(
 Route::get('/productos/{id}', array(
     'as'    => 'productosDetails',
     'uses'  => 'ProductoController@show'
-))->where('id', '[0-9]+');
+));
 
 Route::get('/productos', array(
     'as'    => 'productosIndex',
@@ -89,8 +89,13 @@ Route::get('/clientes', array(
     'uses'  => 'ClienteController@index'
 ));
 
-Route::post('venta/add/producto', array(
+Route::post('/venta/add/producto', array(
     'as'    => 'ventaAddProducto',
     'uses'  => 'VentaController@addProducto'
+));
+
+Route::get('/ventas/carrito', array(
+    'as'    => 'carrito',
+    'uses'  => 'VentaController@carritoIndex' 
 ));
 

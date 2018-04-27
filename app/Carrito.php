@@ -11,4 +11,8 @@ class Carrito extends Model
     protected $primaryKey = 'productos_codigo';
     public $incrementing = false;
     protected $keyType = 'string';
+
+    public function producto(){
+        return $this->hasOne('App\Producto', 'codigo', 'productos_codigo');
+    }
 }

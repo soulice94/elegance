@@ -52,6 +52,14 @@ class VentaController extends Controller
         return response(json_encode($body), 200)->header('Content-Type', 'application/json');
     }
 
+    public function carritoIndex(){
+        $carrito = Carrito::all()->keyBy('productos_codigo');
+        $productos = $carrito->map(function($item, $key){
+            return $item->producto;
+        });
+        return view('ventas.carrito', compact('carrito', 'productos'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
