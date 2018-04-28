@@ -26,12 +26,19 @@ function guardar(){
             $("#errorLabel").show();
         }
         else{
+            console.log(response);
             $("#modal").modal('hide');
             $(".alert").fadeIn();
             setTimeout(function(){
                 cerrar();
             }, 5000);
             btn.disabled = true;
+            $("#"+response.codigo+"u").html(response.unidades);
+            if(response.unidades==0){
+                $("#"+response.codigo+" "+"a").remove();
+                $("#"+response.codigo).html("No disponible");
+                console.log("sin unidades");
+            }
         }
         console.log(response.message);
     });

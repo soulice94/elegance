@@ -29,7 +29,7 @@
                             <td>{{ $item->categoria->nombre }}</td>
                             <td>{{ $item->marca->nombre }}</td>
                             <td>{{ $item->color->nombre }}</td>
-                            <td class="text-center">{{ $item->unidades }}</td>
+                            <td class="text-center" id="{{ $item->codigo }}u">{{ $item->unidades }}</td>
                             <td class="text-center">
                             @if (isset($item->descuento))
                                 {{ $item->descuento }}
@@ -48,7 +48,7 @@
                                 No disponible
                             @endif
                             </td>
-                            <td>
+                            <td id="{{ $item->codigo }}">
                             @if ($item->unidades > 0)
                                 <a class="btn btn-blue-soft" href="{{ route('productosApartar', [ 'codigo' => $item->codigo ]) }}">Apartar</a>
                             @else

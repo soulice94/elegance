@@ -44,9 +44,6 @@
             <h3 class="mb-5">No hay productos en el carrito :(</h3>
         </div>
         @endif
-        <div class="col-md-12">
-            <h3>No hay reparaciones en el carrito</h3>
-        </div>
     </div>
 </div>
 @endsection

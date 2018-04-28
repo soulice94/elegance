@@ -6,6 +6,7 @@ use App\Venta;
 use App\Carrito;
 use App\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class VentaController extends Controller
 {
@@ -45,8 +46,14 @@ class VentaController extends Controller
             $carrito->productos_codigo = $producto->codigo;
             $carrito->cantidad = $cantidad;
             $producto->unidades -= $cantidad;
-            $producto->save(); 
-            $body->exito = $carrito->save();
+
+            DB::transaction(function() use($carrito, $producto, $body){
+                $producto->save(); 
+                $body->exito = $carrito->save();
+            });
+
+            $body->unidades = $producto->unidades;
+            $body->codigo   = $producto->codigo;
             $body->message = "Éxito al agregar el nuevo elemento al carrito";
         }
         return response(json_encode($body), 200)->header('Content-Type', 'application/json');
