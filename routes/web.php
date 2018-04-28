@@ -99,3 +99,8 @@ Route::get('/ventas/carrito', array(
     'uses'  => 'VentaController@carritoIndex' 
 ));
 
+Route::get('/ventas/checkout', array(
+    'as'    => 'checkout',
+    'uses'  => 'VentaController@showCheckout'
+));
+

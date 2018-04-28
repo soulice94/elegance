@@ -67,6 +67,14 @@ class VentaController extends Controller
         return view('ventas.carrito', compact('carrito', 'productos'));
     }
 
+    public function showCheckout(){
+        $carrito = Carrito::all()->keyBy('productos_codigo');
+        $productos = $carrito->map(function($item, $key){
+            return $item->producto;
+        });
+        return view('ventas.checkout', compact('carrito', 'productos'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

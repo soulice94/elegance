@@ -3,47 +3,35 @@
 @section('content')
 <div class="container">
     <div class="row">
-        @if ($carrito->isNotEmpty())
-        <div class="col-md-12">
-            <h3 class="mb-3">Carrito de productos</h3>
-            <table class="table table-striped w-100 mb-5">
-                <thead class="thead-dark">
-                    <th scope="col">código</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Precio</th>
-                    <th scope="col">Categoria</th>
-                    <th scope="col">Marca</th>
-                    <th scope="col">Color</th>
-                    <th scope="col">Cantidad</th>
-                    <th scope="col">Descuento</th>
-                </thead>
-                <tbody>
-                    @foreach ($productos as $item)
-                        <tr>
-                            <td><a href="{{ route('productosDetails', [ 'id' => $item->codigo ]) }}">{{ $item->codigo }}</a></td>
-                            <td class="nombre">{{ $item->nombre }}</td>
-                            <td>${{ $item->precio }}</td>
-                            <td>{{ $item->categoria->nombre }}</td>
-                            <td>{{ $item->marca->nombre }}</td>
-                            <td>{{ $item->color->nombre }}</td>
-                            <td class="text-center">{{ $carrito->find($item->codigo)->cantidad }}</td>
-                            <td class="text-center">
-                            @if (isset($item->descuento))
-                                {{ $item->descuento }}
-                            @else
-                                No Aplica
-                            @endif
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
+        @forelse ($productos as $item)
+        <div class="col-md-4">
+            <div class="card w-100 shadow">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $item->codigo }}</h5>
+                    <p class="card-text">{{ $item->nombre }}</p>
+                    <div class="form-group row">
+                        <label for="" class="col-6 text-right">Cantidad:</label>
+
+                        <div class="col-6">
+                            <input type="number" id="entrada1" class="form-control" value="{{ $carrito->find($item->codigo)->cantidad }}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            <button class="btn btn-primary w-100">Enviar</button>
+                        </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-danger w-100">Eliminar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        @else
+        @empty
         <div class="col-md-12">
-            <h3 class="mb-5">No hay productos en el carrito :(</h3>
+            <h1>No hay productos en el carrito aún :(</h1>
         </div>
-        @endif
+        @endforelse
     </div>
 </div>
 @endsection

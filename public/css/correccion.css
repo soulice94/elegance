@@ -3,7 +3,6 @@ h4.no-transform{
 }
 p{
     color: black;
-    font-size: 1.2rem;
 }
 .table th, .table td{
     color: black;
@@ -54,6 +53,9 @@ body{
     color: black;
 }
 p.error{
-    color:red;
-    font-size: 0.8rem;
+    color: #D32F2F;
+    font-size: 1rem;
+}
+.shadow {
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
 }
