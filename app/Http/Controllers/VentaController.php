@@ -59,6 +59,20 @@ class VentaController extends Controller
         return response(json_encode($body), 200)->header('Content-Type', 'application/json');
     }
 
+    public function eliminarProducto(Request $request){
+        $stock = Producto::find($request->codigo);
+        $producto = Carrito::find($request->codigo);
+        $stock->unidades += $producto->cantidad;
+        DB::transaction(function() use($producto, $stock){
+            $stock->save(); 
+            $producto->delete();
+        });
+        $response = new \stdClass;
+        $response->borrado = true;
+        $response->message = "El producto con codigo ".$request->codigo." ha sido eliminado";
+        return response(json_encode($response), 200)->header('Content-Type', 'application/json');
+    }
+
     public function carritoIndex(){
         $carrito = Carrito::all()->keyBy('productos_codigo');
         $productos = $carrito->map(function($item, $key){

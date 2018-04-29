@@ -20,7 +20,7 @@ function guardar(){
         '_token':   $('meta[name="csrf-token"]').attr('content')
     };
     $("#errorLabel").hide();
-    $.post("/venta/add/producto", datos, function(response, status){
+    $.post("/ventas/add/producto", datos, function(response, status){
         if(response.hasOwnProperty('error')){
             $("#errorLabel").text(response.message); 
             $("#errorLabel").show();

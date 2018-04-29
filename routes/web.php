@@ -89,7 +89,7 @@ Route::get('/clientes', array(
     'uses'  => 'ClienteController@index'
 ));
 
-Route::post('/venta/add/producto', array(
+Route::post('/ventas/add/producto', array(
     'as'    => 'ventaAddProducto',
     'uses'  => 'VentaController@addProducto'
 ));
@@ -104,3 +104,7 @@ Route::get('/ventas/checkout', array(
     'uses'  => 'VentaController@showCheckout'
 ));
 
+Route::post('/ventas/eliminar/producto', array(
+    'as'    => 'ventasEliminar',
+    'uses'  => 'VentaController@eliminarProducto'
+));
