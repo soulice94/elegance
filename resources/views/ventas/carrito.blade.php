@@ -21,12 +21,16 @@
                         <label for="" class="col-6 text-right">Cantidad:</label>
 
                         <div class="col-6">
-                            <input type="number" id="entrada1" class="form-control" value="{{ $carrito->find($item->codigo)->cantidad }}">
+                            <input type="number" id="entrada{{ $item->codigo }}" class="form-control" value="{{ $carrito->find($item->codigo)->cantidad }}">
+                        </div>
+
+                        <div class="col-12">
+                            <p class="error collapse mt-3" id="error{{ $item->codigo }}"></p>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-md-6">
-                            <button class="btn btn-primary w-100">Enviar</button>
+                            <button class="btn btn-primary w-100" onclick="editar('{{ $item->codigo }}')">Editar</button>
                         </div>
                         <div class="col-md-6">
                             <button class="btn btn-danger w-100" onclick="show('{{ $item->codigo }}')">Eliminar</button>

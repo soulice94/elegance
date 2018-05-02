@@ -59,6 +59,36 @@ class VentaController extends Controller
         return response(json_encode($body), 200)->header('Content-Type', 'application/json');
     }
 
+    public function editarProducto(Request $request){
+        $body = new \stdClass;
+        $body->params = $request->all();
+        $cantidad = intval($request->cantidad);
+        $carrito = Carrito::find($request->codigo);
+        $producto = Producto::find($request->codigo);
+        if(isset($request->cantidad) && $cantidad >= 1 && $cantidad <= $producto->unidades + $carrito->cantidad){
+            if($cantidad>$carrito->cantidad){
+                $diferencia = $cantidad - $carrito->cantidad;
+                $producto->unidades -= $diferencia;
+            }
+            else{
+                $diferencia = $carrito->cantidad - $cantidad;
+                $producto->unidades += $diferencia;
+            }
+            $carrito->cantidad = $cantidad;
+            DB::transaction(function() use($carrito, $producto){
+                $carrito->save();
+                $producto->save();
+            });
+            $body->message = "Éxito al actualizar el producto";
+            $body->exito   = true;
+        }
+        else{
+            $body->error   = true;
+            $body->message = 'Ingrese una cantidad válida, unidades disponibles: '.($producto->unidades + $carrito->cantidad);
+        }
+        return response(json_encode($body), 200)->header('Content-Type', 'application/json');
+    }
+
     public function eliminarProducto(Request $request){
         $stock = Producto::find($request->codigo);
         $producto = Carrito::find($request->codigo);

@@ -22,3 +22,24 @@ function eliminar(){
         location.reload();
     });
 }
+
+function editar(codigo){
+    $("#error"+codigo).hide();
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+        }
+    });
+    var datos = {
+        'codigo':   codigo,
+        'cantidad': $("#entrada"+codigo).val(),
+        '_token':   $('meta[name="csrf-token"]').attr('content')
+    };
+    $.post('/ventas/editar/producto', datos, function(response, status){
+        console.log(response);
+        if(response.hasOwnProperty('error')){
+            $("#error"+codigo).text(response.message);
+            $("#error"+codigo).show();
+        }
+    });
+}

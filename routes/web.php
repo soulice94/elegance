@@ -108,3 +108,8 @@ Route::post('/ventas/eliminar/producto', array(
     'as'    => 'ventasEliminar',
     'uses'  => 'VentaController@eliminarProducto'
 ));
+
+Route::post('/ventas/editar/producto', array(
+    'as'    => 'ventasEditar',
+    'uses'  => 'VentaController@editarProducto'
+));
